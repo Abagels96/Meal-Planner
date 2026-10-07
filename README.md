@@ -6,7 +6,7 @@ A $0-cost virtual pantry and recipe book. Scan the barcodes on your cans and box
 
 | Concern | Choice | Cost |
 | --- | --- | --- |
-| App shell | Expo SDK 54 (React Native) + expo-router | Free |
+| App shell | Expo SDK 57 (React Native) + expo-router | Free |
 | Barcode scanning | `expo-camera` (on-device, no API calls) | Free |
 | Product lookup | [Open Food Facts](https://world.openfoodfacts.org) REST API | Free, no key |
 | Recipes | Local seed recipes + [TheMealDB](https://www.themealdb.com) | Free, no key |
@@ -33,11 +33,11 @@ npm run ios       # iOS (requires macOS)
 npm run web       # browser
 ```
 
-## Why SDK 54 (don't upgrade casually)
+## Expo Go must match the project's SDK
 
-This project is pinned to **Expo SDK 54** on purpose. Expo Go in the Apple App Store stops at SDK 54 — SDK 55 and later are not published there, so a newer project refuses to open with a "needs to be updated" message that no App Store update can fix. SDK 54 is the newest version that runs in the Expo Go you can actually install.
+Each Expo Go build runs exactly one SDK version, and the project's `expo` version in `package.json` must match it. Since September 2026 the App Store and Play Store Expo Go is **SDK 57**, which is what this project uses. If Expo Go updates to a newer SDK, run `npx expo install expo@latest --fix` to follow it.
 
-If you later upgrade the SDK, you also have to leave Expo Go behind and make a [development build](https://docs.expo.dev/develop/development-builds/introduction/), which is the path Expo recommends for real apps anyway.
+On iPhone, Expo Go also requires the **same Expo account** to be signed in on both sides: run `npx expo login` on your computer and sign into the Expo Go app with that account, or the project refuses to open.
 
 ## Troubleshooting a phone that won't connect
 
